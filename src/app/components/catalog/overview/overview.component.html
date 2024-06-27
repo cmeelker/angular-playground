@@ -3,7 +3,9 @@
   <div
     class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-x-2 gap-y-8"
   >
-    @for (item of catalogItems; track item.id){
+    @if (error){
+    <div>There was a problem loading the catalog!</div>
+    } @for (item of catalogItems; track item.id){
     <bakery-card [item]="item"></bakery-card>
     }
   </div>

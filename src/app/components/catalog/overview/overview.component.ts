@@ -12,10 +12,14 @@ import { CatalogItem } from '../../../domain/CatalogItem';
 })
 export class OverviewComponent {
   catalogItems: CatalogItem[] = [];
+  error?: string;
 
   constructor(private catalogService: CatalogService) {
-    this.catalogService.getAllItems().subscribe((items) => {
-      this.catalogItems = items;
+    this.catalogService.getAllItems().subscribe({
+      next: (items) => {
+        this.catalogItems = items;
+      },
+      error: (error) => (this.error = error),
     });
   }
 }

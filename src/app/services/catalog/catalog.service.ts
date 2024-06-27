@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CatalogItem } from '../../domain/CatalogItem';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -11,7 +11,6 @@ export class CatalogService {
 
   constructor(private http: HttpClient) {}
 
-  // TODO: Error handling etc.
   getAllItems(): Observable<CatalogItem[]> {
     return this.http.get<CatalogItem[]>(this.url);
   }
