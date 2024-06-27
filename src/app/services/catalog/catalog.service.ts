@@ -8,10 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CatalogService {
   url = '/api/items';
+  readonly catalogItems$ = this.http.get<CatalogItem[]>(this.url);
 
   constructor(private http: HttpClient) {}
-
-  getAllCatalogItems(): Observable<CatalogItem[]> {
-    return this.http.get<CatalogItem[]>(this.url);
-  }
 }

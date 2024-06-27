@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { CatalogService } from '../../../services/catalog/catalog.service';
-import { CatalogItem } from '../../../domain/CatalogItem';
+
+import { catchError } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'bakery-overview',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, AsyncPipe],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.css',
 })
 export class OverviewComponent {
-  catalogItems: CatalogItem[] = [];
   error?: string;
+  readonly catalogItems$ = this.catalogService.catalogItems$.pipe(
+    catchError((error) => {
+      this.error = error;
+      return [];
+    })
+  );
 
-  constructor(private catalogService: CatalogService) {
-    this.catalogService.getAllCatalogItems().subscribe({
-      next: (catalogItems) => {
-        this.catalogItems = catalogItems;
-      },
-      error: (error) => (this.error = error),
-    });
-  }
+  constructor(private catalogService: CatalogService) {}
 }

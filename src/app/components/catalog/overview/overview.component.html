@@ -5,7 +5,7 @@
   >
     @if (error){
     <div>There was a problem loading the catalog!</div>
-    } @for (catalogItem of catalogItems; track catalogItem.id){
+    } @for (catalogItem of (catalogItems$ | async); track catalogItem.id){
     <bakery-card [catalogItem]="catalogItem"></bakery-card>
     }
   </div>
