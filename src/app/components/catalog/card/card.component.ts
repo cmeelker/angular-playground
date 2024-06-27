@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { CatalogItem } from '../../../domain/CatalogItem';
 import { CurrencyPipe } from '@angular/common';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Product } from '../../../domain/Product';
 
 @Component({
   selector: 'bakery-card',
@@ -12,6 +12,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  @Input() catalogItem!: CatalogItem;
+  @Input() product!: Product;
   faCirclePlus = faCirclePlus;
 }

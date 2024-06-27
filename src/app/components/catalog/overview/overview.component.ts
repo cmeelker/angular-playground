@@ -14,7 +14,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class OverviewComponent {
   error?: string;
-  readonly catalogItems$ = this.catalogService.catalogItems$.pipe(
+  readonly products$ = this.catalogService.products$.pipe(
     catchError((error) => {
       this.error = error;
       return [];
