@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+import { CatalogService } from '../../../services/catalog/catalog.service';
+import { CatalogItem } from '../../../domain/CatalogItem';
 
 @Component({
   selector: 'bakery-overview',
@@ -8,4 +10,12 @@ import { CardComponent } from '../card/card.component';
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.css',
 })
-export class OverviewComponent {}
+export class OverviewComponent {
+  catalogItems: CatalogItem[] = [];
+
+  constructor(private catalogService: CatalogService) {
+    this.catalogService.getAllItems().subscribe((items) => {
+      this.catalogItems = items;
+    });
+  }
+}
