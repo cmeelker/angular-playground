@@ -5,8 +5,8 @@
   >
     @if (error){
     <div>There was a problem loading the catalog!</div>
-    } @for (item of catalogItems; track item.id){
-    <bakery-card [item]="item"></bakery-card>
+    } @for (catalogItem of catalogItems; track catalogItem.id){
+    <bakery-card [catalogItem]="catalogItem"></bakery-card>
     }
   </div>
 </div>

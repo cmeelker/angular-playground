@@ -15,9 +15,9 @@ export class OverviewComponent {
   error?: string;
 
   constructor(private catalogService: CatalogService) {
-    this.catalogService.getAllItems().subscribe({
-      next: (items) => {
-        this.catalogItems = items;
+    this.catalogService.getAllCatalogItems().subscribe({
+      next: (catalogItems) => {
+        this.catalogItems = catalogItems;
       },
       error: (error) => (this.error = error),
     });

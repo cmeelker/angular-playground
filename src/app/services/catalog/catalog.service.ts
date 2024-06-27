@@ -11,7 +11,7 @@ export class CatalogService {
 
   constructor(private http: HttpClient) {}
 
-  getAllItems(): Observable<CatalogItem[]> {
+  getAllCatalogItems(): Observable<CatalogItem[]> {
     return this.http.get<CatalogItem[]>(this.url);
   }
 }

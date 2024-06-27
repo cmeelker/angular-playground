@@ -12,6 +12,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  @Input() item!: CatalogItem;
+  @Input() catalogItem!: CatalogItem;
   faCirclePlus = faCirclePlus;
 }

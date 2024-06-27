@@ -2,14 +2,14 @@
   class="grid grid-rows-[4fr_auto] h-96 gap-2 hover:bg-stone-100 hover:rounded-lg"
 >
   <img
-    [src]="item.image"
+    [src]="catalogItem.image"
     class="object-cover object-center h-full w-full overflow-hidden"
   />
   <div class="flex justify-between items-center p-2">
     <div class="">
-      <h3 class="text-lg">{{ item.title }}</h3>
+      <h3 class="text-lg">{{ catalogItem.title }}</h3>
       <div class="text-sm text-stone-600">
-        {{ item.price | currency : "EUR" }}
+        {{ catalogItem.price | currency : "EUR" }}
       </div>
     </div>
     <div>
