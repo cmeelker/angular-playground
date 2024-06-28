@@ -4,6 +4,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Product } from '../../../domain/Product';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../../services/cart/cart.service';
 
 @Component({
   selector: 'bakery-card',
@@ -13,6 +14,13 @@ import { RouterModule } from '@angular/router';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
+  constructor(private cartService: CartService) {}
+
   @Input() product!: Product;
   faCirclePlus = faCirclePlus;
+  cartItems = this.cartService.cartItems();
+
+  addToCart(product: Product) {
+    this.cartService.addProduct(product);
+  }
 }

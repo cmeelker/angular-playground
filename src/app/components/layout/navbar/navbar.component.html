@@ -1,15 +1,10 @@
 <nav
   class="border-stone-400 border-b-[1px] flex justify-between py-5 items-center"
 >
-  <a class="font-bold text-2xl tracking-widest" routerLink="/">Bakery</a>
-  <ul>
-    <li>
-      <fa-icon
-        [icon]="faCartShopping"
-        class="text-stone-400"
-        size="lg"
-      ></fa-icon
-      >(0)
-    </li>
-  </ul>
+  <a class="font-bold text-2xl tracking-widest" routerLink="/">Bakery shop</a>
+
+  <button routerLink="cart">
+    <fa-icon [icon]="faCartShopping" class="text-stone-400" size="lg"></fa-icon>
+    ({{ cartItemsLenght() }})
+  </button>
 </nav>

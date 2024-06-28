@@ -1,0 +1,13 @@
+<div
+  class="grid grid-cols-[auto_1fr_1fr_1fr_1fr_0.5fr] p-2 items-center gap-4 justify-items-center bg-stone-100 m-2"
+>
+  <img
+    [src]="cartItem.product.image"
+    class="w-20 h-20 object-cover object-center overflow-hidden"
+  />
+  <h4 class="font-bold text-md w-full">{{ cartItem.product.title }}</h4>
+  <div>{{ cartItem.quantity }}</div>
+  <div>{{ cartItem.product.price | currency : "EUR" }}</div>
+  <div>{{ cartItem.product.price * cartItem.quantity | currency : "EUR" }}</div>
+  <button><fa-icon [icon]="faXmark"></fa-icon></button>
+</div>
