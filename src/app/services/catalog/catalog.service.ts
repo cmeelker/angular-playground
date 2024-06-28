@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { shareReplay } from 'rxjs';
+import { shareReplay, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../../domain/Product';
 
