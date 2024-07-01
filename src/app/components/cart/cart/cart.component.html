@@ -1,9 +1,9 @@
-<div class="flex gap-10 flex-col max-w-screen-md m-auto items-center">
+<div class="flex gap-10 flex-col max-w-screen-lg m-auto items-center">
   <h2 class="text-xl font-semibold">Cart</h2>
 
-  <div class="">
+  <div class="grid grid-cols-[3fr_1fr] gap-6">
     <div
-      class="grid grid-cols-[6rem_1fr_1fr_1fr_1fr_0.5fr] p-2 items-center justify-items-center gap-x-4"
+      class="grid grid-cols-[6rem_1fr_1fr_1fr_1fr_0.5fr] items-center justify-items-center gap-x-4"
     >
       <div class="col-start-2">Product</div>
       <div>Quantity</div>
@@ -16,8 +16,23 @@
         class="col-start-1 col-span-6 w-full"
       ></bakery-cart-item>
       }
-
-      <div class="col-start-6">Total:</div>
+    </div>
+    <div class="bg-backgroundDark h-fit p-4 w-full flex flex-col gap-4">
+      <h3 class="text-lg font-semibold">Total</h3>
+      <div class="flex flex-col gap-1">
+        <div class="flex justify-between">
+          <p>Sub-Total:</p>
+          <p>{{ cartTotal() | currency : "EUR" }}</p>
+        </div>
+        <div class="flex justify-between">
+          <p>Tax:</p>
+          <p>{{ taxTotal() | currency : "EUR" }}</p>
+        </div>
+        <div class="flex justify-end border-t border-black/20 font-semibold">
+          <p>{{ taxTotal() + cartTotal() | currency : "EUR" }}</p>
+        </div>
+      </div>
+      <button class="btn w-full">Check Out</button>
     </div>
   </div>
 </div>

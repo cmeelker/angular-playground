@@ -34,6 +34,14 @@ export class CartService {
       0
     )
   );
+  cartTotal = computed(() =>
+    this.cartItems().reduce(
+      (previousValue, item) =>
+        previousValue + item.quantity * item.product.price,
+      0
+    )
+  );
+  taxTotal = computed(() => this.cartTotal() * 0.21);
 
   constructor() {}
 
