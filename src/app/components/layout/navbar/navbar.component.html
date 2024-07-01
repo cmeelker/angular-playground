@@ -11,10 +11,7 @@
         size="lg"
       ></fa-icon>
       @if(cartCount() > 0 ){
-      <span
-        class="inline-flex items-center rounded-full bg-backgroundDark hover:bg-primary px-2 py-1 text-xs font-medium text-black ring-1 ring-inset ring-black"
-        >{{ cartCount() }}</span
-      >
+      <span class="inline-flex items-center">({{ cartCount() }})</span>
       }
     </div>
   </button>
