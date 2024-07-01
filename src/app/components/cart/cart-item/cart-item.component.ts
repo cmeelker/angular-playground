@@ -21,7 +21,7 @@ export class CartItemComponent {
   constructor(private cartService: CartService) {}
 
   onQuantityChange(quantity: number) {
-    this.cartService.updateQuantity(this.cartItem, quantity);
+    this.cartService.updateQuantity(this.cartItem, Number(quantity));
   }
 
   onDelete() {
