@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { CatalogService } from '../../../services/catalog/catalog.service';
 
-import { catchError } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -13,13 +12,8 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './overview.component.css',
 })
 export class OverviewComponent {
-  error?: string;
-  readonly products$ = this.catalogService.products$.pipe(
-    catchError((error) => {
-      this.error = error;
-      return [];
-    })
-  );
+  products = this.catalogService.products;
+  productsError = this.catalogService.productsError;
 
   constructor(private catalogService: CatalogService) {}
 }

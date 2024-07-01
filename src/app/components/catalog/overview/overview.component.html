@@ -3,9 +3,9 @@
   <div
     class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-x-2 gap-y-8"
   >
-    @if (error){
-    <div>There was a problem loading the catalog!</div>
-    } @for (product of (products$ | async); track product.id){
+    @if (productsError()){
+    <div>{{ productsError() }}</div>
+    } @for (product of products(); track product.id){
     <bakery-card [product]="product"></bakery-card>
     }
   </div>
