@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { NavbarComponent } from '../layout/navbar/navbar.component';
+import { NavbarComponent } from './components/layout/navbar/navbar.component';
 
 @Component({
   selector: 'bakery-root',
