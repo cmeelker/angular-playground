@@ -28,10 +28,14 @@ export class CartService {
       quantity: 2,
     },
   ]);
+  cartCount = computed(() =>
+    this.cartItems().reduce(
+      (previousValue, item) => previousValue + item.quantity,
+      0
+    )
+  );
 
-  constructor() {
-    console.log(this.cartItems());
-  }
+  constructor() {}
 
   addProduct(product: Product) {
     // TODO: Increase quantity if product already exists

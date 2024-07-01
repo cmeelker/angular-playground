@@ -15,6 +15,5 @@ export class NavbarComponent {
   constructor(private cartService: CartService) {}
 
   faCartShopping = faCartShopping;
-  // TODO:
-  cartItemsLenght = computed(() => this.cartService.cartItems().length);
+  cartCount = this.cartService.cartCount;
 }
