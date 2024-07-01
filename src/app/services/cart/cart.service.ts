@@ -6,28 +6,7 @@ import { Product } from '../../domain/Product';
   providedIn: 'root',
 })
 export class CartService {
-  cartItems = signal<CartItem[]>([
-    {
-      product: {
-        id: '1',
-        title: 'Pecan Pie',
-        price: 3.0,
-        category: 'Pie',
-        image: '1.jpg',
-      },
-      quantity: 1,
-    },
-    {
-      product: {
-        id: '2',
-        title: 'Lemon Merengue Pie',
-        price: 4.5,
-        category: 'Pie',
-        image: '2.jpg',
-      },
-      quantity: 2,
-    },
-  ]);
+  cartItems = signal<CartItem[]>([]);
   cartCount = computed(() =>
     this.cartItems().reduce(
       (previousValue, item) => previousValue + item.quantity,
@@ -46,7 +25,27 @@ export class CartService {
   constructor() {}
 
   addProduct(product: Product) {
-    // TODO: Increase quantity if product already exists
-    this.cartItems.update((items) => [...items, { product, quantity: 1 }]);
+    this.cartItems.update((items) => {
+      const index = items.findIndex((item) => item.product.id === product.id);
+      if (index > -1) {
+        items[index].quantity += 1;
+        return [...items];
+      }
+      return [...items, { product, quantity: 1 }];
+    });
+  }
+
+  deleteProduct(cartItem: CartItem) {
+    this.cartItems.update((items) =>
+      items.filter((item) => item.product.id !== cartItem.product.id)
+    );
+  }
+
+  updateQuantity(cartItem: CartItem, quantity: number) {
+    this.cartItems.update((items) =>
+      items.map((item) =>
+        item.product.id === cartItem.product.id ? { ...item, quantity } : item
+      )
+    );
   }
 }

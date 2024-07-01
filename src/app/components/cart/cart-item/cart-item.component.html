@@ -6,8 +6,16 @@
     class="w-20 h-20 object-cover object-center overflow-hidden"
   />
   <h4 class="font-bold text-md w-full">{{ cartItem.product.title }}</h4>
-  <div>{{ cartItem.quantity }}</div>
+  <select
+    aria-label="Quantity"
+    [ngModel]="cartItem.quantity"
+    (ngModelChange)="onQuantityChange($event)"
+  >
+    @for(quantity of quantityArray; track quantity){
+    <option>{{ quantity }}</option>
+    }
+  </select>
   <div>{{ cartItem.product.price | currency : "EUR" }}</div>
   <div>{{ cartItem.product.price * cartItem.quantity | currency : "EUR" }}</div>
-  <button><fa-icon [icon]="faXmark"></fa-icon></button>
+  <button (click)="onDelete()"><fa-icon [icon]="faXmark"></fa-icon></button>
 </div>

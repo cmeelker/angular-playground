@@ -1,9 +1,12 @@
 <div class="flex gap-10 flex-col max-w-screen-lg m-auto items-center">
   <h2 class="text-xl font-semibold">Cart</h2>
 
+  @if(cartTotal() === 0){
+  <p>Your cart is empty.</p>
+  } @else{
   <div class="grid grid-cols-[3fr_1fr] gap-6">
     <div
-      class="grid grid-cols-[6rem_1fr_1fr_1fr_1fr_0.5fr] items-center justify-items-center gap-x-4"
+      class="grid grid-cols-[6rem_1fr_1fr_1fr_1fr_0.5fr] items-center justify-items-center gap-x-4 h-fit"
     >
       <div class="col-start-2">Product</div>
       <div>Quantity</div>
@@ -35,4 +38,5 @@
       <button class="btn w-full">Check Out</button>
     </div>
   </div>
+  }
 </div>
