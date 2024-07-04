@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../card/card.component';
-import { CatalogService } from '../../../services/catalog/catalog.service';
+import { ProductService } from '../../../services/product/product.service';
 
 import { AsyncPipe } from '@angular/common';
 
@@ -12,8 +12,8 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './overview.component.css',
 })
 export class OverviewComponent {
-  products = this.catalogService.products;
-  productsError = this.catalogService.productsError;
+  products = this.ProductService.products;
+  productsError = this.ProductService.productsError;
 
-  constructor(private catalogService: CatalogService) {}
+  constructor(private ProductService: ProductService) {}
 }

@@ -9,7 +9,7 @@ import { HttpErrorService } from '../error/error.service';
 @Injectable({
   providedIn: 'root',
 })
-export class CatalogService {
+export class ProductService {
   url = '/api/products';
 
   constructor(
