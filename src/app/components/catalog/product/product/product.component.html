@@ -1,4 +1,9 @@
-<p>product works!</p>
+@if(productError() || !product()){
+<div>error</div>
+} @else {
+<div>
+  <h1 class="text-3xl font-bold">{{ product()?.title }}</h1>
+  <h2 class="text-xl font-bold">Reviews</h2>
+</div>
 
-<!-- Product page!
-Caching! -->
+}

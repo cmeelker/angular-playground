@@ -12,8 +12,8 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './overview.component.css',
 })
 export class OverviewComponent {
-  products = this.ProductService.products;
-  productsError = this.ProductService.productsError;
+  products = this.productService.products;
+  productsError = this.productService.productsError;
 
-  constructor(private ProductService: ProductService) {}
+  constructor(private productService: ProductService) {}
 }
