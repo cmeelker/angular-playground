@@ -9,13 +9,28 @@
   <div class="flex justify-between items-center p-2">
     <div class="">
       <h3 class="text-lg">{{ product.title }}</h3>
-      <div class="text-sm text-stone-600">
+      <div class="text-sm text-stone-500">
         {{ product.price | currency : "EUR" }}
       </div>
     </div>
-    <div>
-      <button (click)="addToCart(product)" class="text-2xl btn-secondary">
-        +
+    <div class="flex justify-center gap-3">
+      <button (click)="toggleFavorite()" class="w-5">
+        @if ((isFavorite$ | async) === true){
+        <fa-icon [icon]="faHeart" size="lg" class="text-secondary"></fa-icon>
+        } @else {
+        <fa-icon
+          [icon]="faHeartCirclePlus"
+          size="lg"
+          class="hover:text-secondary text-stone-500"
+        ></fa-icon>
+        }
+      </button>
+      <button (click)="addToCart()">
+        <fa-icon
+          [icon]="faCartPlus"
+          size="lg"
+          class="hover:text-secondary text-stone-500"
+        ></fa-icon>
       </button>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { Injectable, computed } from '@angular/core';
-import { catchError, map, of, shareReplay, tap, throwError } from 'rxjs';
+import { catchError, map, of, shareReplay } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../../domain/Product';
 import { toSignal } from '@angular/core/rxjs-interop';
