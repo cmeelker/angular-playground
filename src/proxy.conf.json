@@ -3,5 +3,13 @@
     "target": "http://localhost:3000",
     "secure": false,
     "pathRewrite": { "^/api": "" }
+  },
+  "/numbers": {
+    "target": "https://www.randomnumberapi.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/numbers": ""
+    }
   }
 }
